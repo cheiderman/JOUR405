@@ -33,7 +33,9 @@ umd_fees_pct <- umd_fees |> mutate(pct_change = (`Fall 2026`- `Fall 2021`)/`Fall
 
 Write a few sentences about what you found in those percentages. What's the story here? What questions do you have?
 
+## Athletics had no change in percentage, which I found surprising since athletics is a big draw to the university. I also find it quite interesting that the shuttlebus and student sustainability had much larger percentage changes. 
 
+## Story ideas could be if students on campus have felt a difference in the quality of the on-campus services (counseling center and shuttles) compared to the rise in costs. I also am interested in why student sustainability has gone up so high. Are there new services or new sustainability campaigns that are costly? 
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.

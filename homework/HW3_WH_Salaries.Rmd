@@ -31,6 +31,7 @@ ANSWER HERE
 Write code to calculate the mean and median of the salaries in the dataset using the `summarize()` function. You don't need to make a new dataframe, just display the results.
 
 ```{r}
+wh_salaries |> summarize(mean_salary = mean(SALARY), median_salary = median(SALARY))
 
 ```
 
@@ -39,6 +40,7 @@ Write code to calculate the mean and median of the salaries in the dataset using
 Take the code you just wrote and add in the minimum and maximum salaries (the functions for that are `min()` and `max()`). Your results should show four columns: mean_salary, median_salary, min_salary, max_salary.
 
 ```{r}
+wh_salaries |> summarize(mean_salary = mean(SALARY), median_salary = median(SALARY), min_salary = min(SALARY), max_salary = max(SALARY))
 
 ```
 
@@ -46,10 +48,10 @@ Take the code you just wrote and add in the minimum and maximum salaries (the fu
 
 Write a couple of sentences describing the results of your analysis. What do the mean and median salaries tell you about the data? What do the minimum and maximum salaries tell you? Are there any outliers in the data?
 
-ANSWER HERE
+##The mean salary is $112702.7 and the median salary is $109243. The mean averages all of the salaries reported, while the median is the middle salary value of all salaries reported. The min salary is $0 and the max is $197200. The min and max salaries tell me that there is a very broad range of salaries reported. Based on the mean and median, the min salary of $0 seems to be an outlier because it deviates very far from the mean salary of $112702.7. My best guess is that the employees paid $0 per year are paid through some other government agency. 
 
 ### Task 7: Story Idea
 
 Based on the data, what is your best story idea? What is the next step you would take to develop that story idea?
 
-ANSWER HERE
+##The employees who make $0 a year intrigue me. As I mentioned earlier, I assume they are employed/ paid by some other agency. My question would be why they are stationed at the white house. I am also curious as to why there is a dedicated Faith office in the WH. The next step would be looking into the employees themselves and seeing where they might be paid from (other agency payroll information).

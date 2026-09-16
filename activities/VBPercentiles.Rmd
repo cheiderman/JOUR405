@@ -39,7 +39,7 @@ team_aces |> mutate(percentile = ntile(total_aces, 100))
 
 Write a couple of sentences that puts Maryland into context with the other teams in the dataset. You can do some Internet research to help with this.
 
-
+Maryland has 223 total aces and is in the 95th percentile. This means that 95% of teams have the same or less total aces throughout their volleyball season. Alcorn has 77 aces in their season and is in the 1st percentile, this means that Alcorn has the same or less aces as 1% of the teams (aka they have the lowest number). UTEP, Sacramento St. and Mercer are in the 100th percentile, which means they are the top ace scorers. Penn State has 203 service aces and is in the 87th percentile. Maryland is in a higher percentile then Penn State because our aces scored are higher. 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
 

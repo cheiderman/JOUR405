@@ -69,3 +69,23 @@ Write up a lede and nutgraf of a story with the _best_ story idea you've found i
 ### Task 9: Save Your Work and Put it on GitHub
 
 Save this notebook, then commit it to your local repository. Push the changes to your GitHub repository and submit the URL for this file in ELMS.
+
+
+##Task 10
+
+Using the 2020 violent crime rate, calculate the percentiles using `ntile()`. Save the results to a new dataframe called `md_cities_percentiles`. How many cities are above the 90th percentile?
+
+##11 cities are above the 90th percentile.
+
+```{r}
+md_cities_percentiles <- md_cities_change |> mutate(percentile = ntile(violent_rate_2020, 100))
+```
+
+Calculate the Interquartile Range of the 2020 violent crime rate using `summarize()` and R's `IQR()` function. The syntax is similar to how `mean()` works.
+
+```{r}
+md_cities_change |> summarize(IQR(violent_rate_2020))
+```
+Do the results change your best story idea from the previous assignment? Why or why not?
+## I don't think that this IQR result changes my story idea from the previous assigment. Instead, I think it is a good comparison to show that the crime rate results for Ocean City are outliers when you factor in crimes per 10,000 people. 
+

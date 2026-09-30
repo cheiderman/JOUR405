@@ -274,6 +274,9 @@ When reporting on these findings, remember to:
 ### How likely is a specific car theft month?
 
 Let's pick the month with the highest total and walk through the process: calculate its z-score, use `pnorm()` to find the probability, then check against the actual data.
+
+##Cait Heiderman. I'm never driving in PG county again. 
+
 ```{r pnorm-specific-month}
 # Find the month with the most car thefts
 highest_month <- car_thefts %>%

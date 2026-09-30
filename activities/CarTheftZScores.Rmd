@@ -81,6 +81,8 @@ car_thefts <- car_thefts %>%
     z_score = (total - mean_thefts) / sd_thefts
   )
 
+##Note to self: We use mutate to make sure the z-scores are applied to all columns
+
 # Display the data with z-scores
 car_thefts %>%
   select(month, total, z_score) %>%

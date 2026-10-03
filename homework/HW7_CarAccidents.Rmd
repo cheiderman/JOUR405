@@ -32,6 +32,8 @@ library(lubridate)  # For working with dates
 Load the accident data from our CSV file at https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/daily_accidents.csv into a dataframe called `accidents`:
 
 ```{r load-data}
+accidents <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/daily_accidents.csv")
+
 
 ```
 
@@ -69,6 +71,10 @@ ggplot(accidents, aes(x = date, y = total)) +
 Looking at the time series visualization above, identify at least two noticeable patterns or anomalies. What questions would you want to investigate further based on this initial view of the data? How might these visual patterns translate into potential story angles?
 
 ANSWER HERE
+##1. The highest peak of the data is around 2022 and the lowest drop is around 2020.
+##2. The data does not start from the x-axis. Instead, it is located in the middle of the visualization. 
+##I want to know why the data is presented this way and not in the typical histogram style. I also am interested if the lowest drop coincides with the pandemic. 
+##These visual patterns are very interesting between 2020 and 2022. 
 
 The daily data is quite noisy, so let's also look at weekly patterns:
 
@@ -108,6 +114,7 @@ ggplot(accidents, aes(x = day_of_week, y = total)) +
 Based on the day-of-week analysis, which day(s) have the highest and lowest average accidents? Why might these patterns exist?
 
 ANSWER HERE
+##Friday, Saturday and Sunday have higher average accidents. Monday, Tuesday and Wednesday have lower average accidents. These patterns might exist because the higher dates are on the weekends when many people are not at work and driving more. 
 
 ## Calculating Z-Scores
 
@@ -119,9 +126,9 @@ Now, using the accidents dataframe, add three columns using `mutate()`: mean_acc
 # Calculate z-scores for total accidents
 accidents <- accidents |>
   mutate(
-    mean_accidents = REPLACE_ME,
-    sd_accidents = REPLACE_ME,
-    z_score = (REPLACE_ME - REPLACE_ME) / REPLACE_ME
+    mean_accidents = mean(total),
+    sd_accidents = sd(total),
+    z_score = (total - mean_accidents) / sd_accidents
   )
 
 # Display the data with z-scores
@@ -157,6 +164,8 @@ unusual_days |>
 Choose one of the top 10 unusual days and research what might have happened on that date. Look for weather events, holidays, major incidents, or other factors that could explain the unusual number of accidents. Briefly describe your findings and how you would incorporate this context into a story.
 
 ANSWER HERE
+##Based on my research, 10/29/2021 was the day a severe coastal storm hit Maryland. Governor Hogan declared a state of emergency because the storm brought the worst flooding the region has seen in years. 
+##To incorporate this context into a story, I would write something about how rain weather events may cause higher accident numbers in the state of Maryland. I might be able to compare accident numbers to days when similar weather events happened.
 
 Let's visualize these unusual days:
 
@@ -186,9 +195,9 @@ Let's calculate z-scores that account for day of week patterns based on the same
 accidents <- accidents |>
   group_by(day_of_week) |>
   mutate(
-    dow_mean = REPLACE_ME,
-    dow_sd = REPLACE_ME,
-    dow_z_score = (REPLACE_ME - REPLACE_ME) / REPLACE_ME
+    dow_mean = mean(z_score),
+    dow_sd = mean(z_score),
+    dow_z_score = (z_score - dow_mean) / dow_sd
   ) |>
   ungroup()
 
@@ -203,11 +212,11 @@ unusual_dow |>
   select(date, day_of_week, total, dow_mean, dow_z_score) |>
   kable(digits = 2)
 ```
-
 ### Task 7 (3 points)
 Compare the days that have extreme z-scores overall versus those with extreme day-of-week z-scores. How do these lists differ? What journalistic insights can you draw from comparing these two different approaches to measuring "unusual" days?
 
 ANSWER HERE
+##The extreme z-scores range from -3.145 to 4.769. The extreme dow z-scores range from -48.538 to 43.116. These lists differ by patterns. Extreme z-scores are for total accidents, extreme day-of-week z-scores account for the day-of-week patterns. We can examine the data to determine how the day of the week impacts the z-scores for the accident data. 
 
 Let's see how many unusual days we have for each day of the week:
 
@@ -287,6 +296,7 @@ unusual_monthly |>
 Based on the monthly pattern analysis, which months have the highest and lowest average accidents? Develop a hypothesis about why these seasonal patterns exist.
 
 ANSWER HERE
+##The highest months are Sept. and Oct. The lowest months are Jan. and Mar. These patterns may exist because Sep. and Oct. tend to have more rain and daylight starts to end earlier. The fall is also when the football season begins, so that may influence because more people are traveling to watch games and possibly be under the influence of alcohol. January may be lower because the time is after the holidays, so less people might be going out. Also, the cold weather may discourage people from driving. 
 
 ## Identifying Extreme Outliers
 
@@ -311,9 +321,14 @@ if(nrow(extreme_outliers) > 0) {
 ### Task 9 (2 points)
 For the extreme outliers identified (z-scores beyond ±3), what do they have in common?
 
-ANSWER HERE
+The z-scores fall between 46 and 58. The with extreme outliers also happen to fall on a weekend. 
 
 ## Your Best Story Pitch
 
 ### Task 10 (5 points)
 Based on all the analyses performed, craft your best story pitch, including a headline and lede. Be sure to include what kinds of sources/people you'd talk to for the story.
+
+##Pitch: Story about how average daily car accidents per month in Prince George's County tend to be higher during weekends in October. Halloween, fall weather or weekend sporting events could possibly be a cause for the increase. 
+#Headline: Weekends in October lead with the highest number of average daily accidents in Prince George's County. 
+##Lede: Car accident data released by Price George's County indicates that the average daily number of car accidents are highest during weekends in October. 
+##Sources: I would talk to someone from the PGCPD, traffic analysts, look at possible events in PG county (Halloween events, dates of football games, etc.). I would also be interested to see where the accidents are occuring most frequently. 

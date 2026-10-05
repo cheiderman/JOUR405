@@ -9,6 +9,9 @@ In this assignment, you'll build on your z-score skills to answer probability qu
 Load the tidyverse and the White House salaries data from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2025.csv into a dataframe called `wh_salaries`
 
 ```{r}
+library(tidyverse)
+
+wh_salaries <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2025.csv")
 ```
 
 ### Task 2: Filter and summarize (2 points)
@@ -17,20 +20,32 @@ You may remember from HW3 that some White House staffers have a salary of $0. Le
 
 ```{r}
 wh_paid <- wh_salaries |>
-  filter(SALARY > 0)
-
-
+  filter(SALARY > 0) |>
+  mutate(
+    mean_salary = mean(SALARY),
+    median_salary = median(SALARY),
+    sd_salary = sd(SALARY)
+  )
 
 ```
 
 Now create a histogram of the paid salaries with a vertical line for the mean and two more for ±1 standard deviation, similar to what you did in HW6 with Spotify data.
 
 ```{r}
+
+wh_paid |> 
+  ggplot() + 
+  geom_histogram(aes(x = SALARY), binwidth = 5000) +
+  geom_vline(aes(xintercept = mean(SALARY)), color = "red", linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = mean(SALARY) - sd(SALARY)), color = "blue", linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = mean(SALARY) + sd(SALARY)), color = "blue", linetype = "dashed", linewidth = 1)
+
+
 ```
 
 **Describe the shape of the distribution. Is it roughly normal? Skewed? Where do most salaries cluster?**
 
-ANSWER HERE
+Based on this graph, I would say the data skews right. I struggle to see if the data is roughly normal or not based on the outliers near the 200,000 salary range. Most of the salaries cluster below 120,000 and above 50,000. 
 
 ### Task 3: The Empirical Rule (3 points)
 
@@ -64,7 +79,7 @@ empirical
 
 **How closely does the data follow the empirical rule? What does any deviation tell you about the distribution?**
 
-ANSWER HERE
+##With the empirical rule, the 100% percent of the data falls within 3 SD of the mean. Only 91.2% falls within 2 SD and 65.9% falls within 1 SD. Deviation tell us how much of the salary data spreads out from the mean salary of the data. Deviations measure the spread of the data. 
 
 ### Task 4: From z-scores to probability with pnorm() (4 points)
 

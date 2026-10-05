@@ -45,7 +45,7 @@ wh_paid |>
 
 **Describe the shape of the distribution. Is it roughly normal? Skewed? Where do most salaries cluster?**
 
-Based on this graph, I would say the data skews right. I struggle to see if the data is roughly normal or not based on the outliers near the 200,000 salary range. Most of the salaries cluster below 120,000 and above 50,000. 
+##Based on this graph, I would say the data skews right. I struggle to see if the data is roughly normal or not based on the outliers near the 200,000 salary range. Most of the salaries cluster below 120,000 and above 50,000. 
 
 ### Task 3: The Empirical Rule (3 points)
 
@@ -118,6 +118,7 @@ actual_prob
 **Write a sentence describing this probability in plain English. How does the normal approximation (prob_less) compare to the actual percentage?**
 
 ANSWER HERE
+##The actual probability is 0.1818. The lower tail (prob_less), is 0.8311, meaning the area under the distribution curve to the left of the z-score. The upper tail (prob_more), is 0.1688, meaning the area under the distribution curve to the right of the z-score. p-norm converts the z-score into a probability that we can explain more clearly. A probability of 0.1818 means there is an 18% probability that the salary is $150,000. The prob_less lower tail means that there is a 83% probability that a WH employees salary is below $150,000. 
 
 ### Task 5: Probability between two values (3 points)
 
@@ -127,21 +128,21 @@ You'll need to calculate z-scores for those two figures, use `pnorm()` for each,
 
 ```{r}
 
-z_lower <- (REPLACE_ME - mean_sal) / sd_sal
-z_upper <- (REPLACE_ME - mean_sal) / sd_sal
+z_lower <- (80000 - mean_sal) / sd_sal
+z_upper <- (120000 - mean_sal) / sd_sal
 
 prob_between <- pnorm(z_upper) - pnorm(z_lower)
 prob_between
 
 # Verify with actual data
-actual_between <- sum(wh_paid$SALARY >= REPLACE_ME & wh_paid$SALARY <= REPLACE_ME) / total_n
+actual_between <- sum(wh_paid$SALARY >= 80000 & wh_paid$SALARY <= 120000) / total_n
 actual_between
 
 ```
 
 **Interpret this result. What does this "middle range" tell us about the White House salary structure?**
 
-ANSWER HERE
+##The middle range of actual_between tells us that 32.5% of WH employees make a salary between $80,000 and $120,000 annually. 
 
 ### Task 6: Expected vs. observed (3 points)
 
@@ -173,7 +174,7 @@ bins |> select(category, expected_count, observed_count, difference)
 
 **Where does reality differ most from what the normal distribution predicts? What might explain those differences?**
 
-ANSWER HERE
+##The observed and expected count for the salary range of $60k-$90k is pretty close and 151 employees fall in this range. However, the expected count for $90k-$120k has an expected count of 113.5 and a different of -19.4, with 84 employees falling in this range. This helps support our earlier conclusion that most WH employees fall within the $50k-$120k salary range. 
 
 ### Task 7: Story pitch (4 points)
 
@@ -181,7 +182,10 @@ Based on your probability analysis, write a headline and lede for a story about 
 
 Then write 2-3 sentences describing how you would use probability thinking to advance this story — what could you compare these probabilities to, and what additional analysis would help?
 
-ANSWER HERE
+##Headline: Data reveals most White House employees make less than $120k each year. 
+##Lede: Employee salary data released by the White House reveals that 83% of employees earn an annual salary below $120,000. 
+
+##In the WH salary story, I believe comparing employee salary data to other federal agency employee salaries could be an interesting question. I also would use probability to examine the employees who make above $120k annually and see what their responsibilities are compared to the employees that make under $120k. 
 
 ### Task 8: Save Your Work and Put it on GitHub
 

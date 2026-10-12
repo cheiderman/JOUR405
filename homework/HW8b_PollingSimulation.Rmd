@@ -100,16 +100,16 @@ Create two histograms side by side using the code structure from class. Add a ve
 simulations_all <- bind_rows(simulations_50, simulations_500) |> 
   mutate(sample_size = paste("n =", sample_size))
 
-ggplot(simulations_all, aes(x = population_proportion)) +
-  geom_histogram(bins = 1, fill = "steelblue", color = "white") +
+ggplot(simulations_all, aes(x = proportion)) +
+  geom_histogram(bins = 50, fill = "steelblue", color = "white") +
   geom_vline(xintercept = population_proportion, color = "red", linetype = "dashed", linewidth = 1) +
   facet_wrap(~sample_size) +
   labs(
-    title = "Distribution of Sample Estimates: Share Religiously Unaffiliated",
+    title = "Distribution of Sample Estimates: White Evangelical",
     subtitle = "Red line = true population proportion. Each histogram shows 1,000 simulated polls.",
     x = "Sample Proportion",
     y = "Count",
-    caption = "Source: 2024 Cooperative Election Study"
+    caption = "Source: JOUR405 Derek Willis Data"
   ) +
   theme_minimal()
 ```
@@ -119,19 +119,21 @@ ggplot(simulations_all, aes(x = population_proportion)) +
 **Describe the shape of the n=50 histogram.** Is it as symmetric as the unaffiliated histogram from class? Why do you think that is, given that White Evangelicals make up only about 10% of the population?
 
 ANSWER HERE
-##There is no variation in the distribution height. I'm not sure why the histogram looks the way it does. 
+##Yes, it visually looks very similar to the histogram from class. They both are fairly normally distributed. Even though White Evangelicals only make up about 10%, I think it makes sense because the proportion data only ranges from 0.0 to 0.26. 
 
 **Compare the n=50 and n=500 histograms for this group.** How much does the distribution change with a larger sample? Is the improvement bigger or smaller than what you saw in class with the unaffiliated group?
 
 ANSWER HERE
-##visually, it looks the exact same. The y-axis is the exact same height. It looks very different to the class example. 
+##With a larger sample, the number for sample proportion is obviously higher and the count is much higher as well. The distribution stays fairly normal. The improvement is smaller than what was seen in class. The two graphs here are more similar then the two graphs we used in class. 
 
 **A news organization wants to report on White Evangelical voters using a poll of 200 people.** Based on your simulations, roughly how many White Evangelical respondents would that poll be likely to include? What does that suggest about the reliability of estimates for smaller subgroups?
 
 ANSWER HERE
+##Based on this data, I think about 10% of the respondents would be White Evangelicals, so about 20 respondents. 
 
 **Imagine you are covering the 2028 presidential election and a campaign shares a poll showing White Evangelical support at 78%.** The poll sampled 400 people. Based on everything you've seen in this assignment and in class, what would you want to know before reporting that number?
 
 ANSWER HERE
+##Before reporting the number, I would want to see when and where these people were polled. I would also want to know if they were randomly sampled or not. We would also need to know the religious breakdown of all eligible voters in the U.S. I am also curious of the political party of the campaign because I would think a republican candidate would yield more white evangelical votes then a democrat. 
 
 When finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.

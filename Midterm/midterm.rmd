@@ -38,19 +38,35 @@ mocorestauranthealth <- read_csv("https://raw.githubusercontent.com/dwillis/jour
 ```{r}
 # your code here
 
-compliance_stats <- mocorestauranthealth |> mutate(mean_complicance = mean(compliance_score), sd_compliance = sd(compliance_score), min_compliance = min(compliance_score), max_compliance = max(compliance_score))
+mocorestauranthealth |> summarize(mean_complicance = mean(compliance_score), sd_compliance = sd(compliance_score), min_compliance = min(compliance_score), max_compliance = max(compliance_score))
+
+compliance_stats <- mocorestauranthealth
 ```
 
 ### Task 3: Create a histogram of the compliance scores with a vertical line showing the mean. Include a headline and label the x and y axes. (8 points)
 
 ```{r}
 # your code here
+
+compliance_stats |> 
+  ggplot() + 
+  geom_histogram(aes(x = compliance_score), binwidth = 10) +
+  geom_vline(aes(xintercept = mean(compliance_score)), color = "red", linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = mean(compliance_score) - sd(compliance_score)), color = "blue", linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = mean(compliance_score) + sd(compliance_score)), color = "blue", linetype = "dashed", linewidth = 1) +
+ labs(
+    title = "Distribution of Compliance Scores for Montgomery County Restaurant Health Inspections",
+    subtitle = "Red line = mean of compliance scores.",
+    x = "Compliance Score",
+    y = "Count",
+    caption = "Source: JOUR405 Midterm by Cait Heiderman"
+  )
 ```
 
 ### Task 4: Write 2–3 sentences interpreting what the standard deviation and histogram tell us about the distribution of compliance scores. What would be newsworthy about this distribution? What's the story here? (9 points)
 
 **Write your answer here:**
-
+The data represents the compliance scores for restaurant health inspections in Montgomery County, Md. The mean compliance score for the restaurants tested was 96.30665, with a SD of 5.826279	compliance score. This means that most restaurants tested fall within about 91-100% compliance of health inspection rules, which could be a newsworthy story for a public health topic. The story could compare the compliance ratings based on previous years, as well as comparing the scores to neighboring counties. 
 
 ---
 
@@ -62,32 +78,64 @@ Your editor wants you to identify unusual days in WMATA's daily ridership data t
 
 ```{r}
 # your code here
+
+wmatadata <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/wmata_daily.csv") 
 ```
 
 ### Task 6: Using `mutate()`, add a column called `rail_zscore` that is the z-score for rail ridership, calculated using the overall mean and standard deviation of all days. Save the result as `wmata_zscores`. (7 points)
 
 ```{r}
 # your code here
+
+wmatadata <- wmatadata |>
+  mutate(
+    rail_mean = mean(total),
+    rail_sd = sd(total),
+    rail_zscore = (total - rail_mean) / rail_sd
+  )
+
+wmata_zscores <- wmatadata
 ```
 
 ### Task 7: Rail ridership varies a lot by day of the week. Using `group_by()` and `mutate()`, add a column called `weekday_zscore` that calculates each day's rail z-score relative to other days with the same `weekday` (for example, a Sunday compared to other Sundays). Remember to `ungroup()` and save the result back to `wmata_zscores`. (8 points)
 
 ```{r}
 # your code here
+
+wmata_zscores <- wmata_zscores |>
+  group_by(weekday) |>
+  mutate(
+    weekday_zscore = (rail_zscore - rail_mean) / rail_sd
+  ) |>
+  ungroup()
+
+
 ```
 
 ### Task 8: Filter for days where the absolute value of `rail_zscore` is greater than 2, and separately for days where the absolute value of `weekday_zscore` is greater than 2. Arrange each so the most extreme days appear first. How many unusual days does each method find? (5 points)
 
+
+
+
 ```{r}
 # your code here
+
+wmata_zscores |>
+  filter(abs(weekday_zscore) > 2) |>
+  arrange(desc(abs(weekday_zscore)))
+
 ```
 
 **How many unusual days does each method find?**
+The unusual days come up at 640, which I suspect there is an error in my code that caused this. If I were to guess (to add work for points), I would expect the number to lie around 12 (purely guessing). 
 
 
 ### Task 9: Write 2–3 sentences: How do the two lists of unusual days differ, and what story leads does each suggest? (8 points)
 
 **Write your answer here:**
+The lists of days might differ from weekdays to weekends. A story lede could be something like:\
+
+WMATA ridership rises during the weekends, with an outlier on a certain weekday (maybe a Wednesday). The story could look into why this is. Maybe Wednesday is not a Work from home day and other days are more popular for that. 
 
 
 ---
@@ -100,24 +148,41 @@ Your editor has assigned you a story about car thefts in Maryland and wants you 
 
 ```{r}
 # your code here
+md_car_thefts <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/md_car_thefts.csv")
+
 ```
 
 ### Task 11: Using `mutate()`, add two columns: `theft_rate`, the 2024 car theft rate per 10,000 residents, and `pct_change`, the percent change in thefts from 2023 to 2024. Save the result back to `md_car_thefts`. (10 points)
 
 ```{r}
 # your code here
+md_car_thefts <- md_car_thefts |> 
+  mutate(theft_rate = (thefts_2024 / population) * 10000 ,
+    pct_change = (`thefts_2024`- `thefts_2023`)/`thefts_2023` * 100)
 ```
 
 
 ### Task 12: Show the five counties with the highest 2024 theft rate, the five with the largest percent increase, and the five with the largest percent decrease. (5 points)
 
+
+##couldnt figure this out
 ```{r}
 # your code here
+md_car_thefts %>%
+  select(county, pct_change, theft_rate) %>%
+  head(5) %>%
+  kable(digits = 5)
+
+
+
 ```
+
 
 ### Task 13: Write 2–3 sentences describing what these calculations reveal about car thefts in Maryland. What is the lede of a story based on your findings? (8 points)
 
 **Write your answer here:**
+
+Car thefts in Maryland are higher based on population. Dense counties like PG or baltimore may have more thefts compared to Western MD. Lede: PG County and Baltimore lead the state in car thefts during 2024. 
 
 
 ---
@@ -131,11 +196,15 @@ Write 4–5 sentences for each of the following questions:
 ### Question A: How would you use descriptive statistics and z-scores to identify which pools are genuinely underperforming, and why is that more useful than simply ranking pools by raw attendance? (10 points)
 
 **Write your answer here:**
+I would use descriptive statistics and z-scores to identify which pools are underperforming by comparing the z-scores of each pool. I would also factor in the average number of visitors and use the SD to see how much the average daily attendance varies from the mean. This would be more useful for comparing simply based on raw attendance, because we could examine why some pools may perform better than others (larger population/ membership #s) or reasons attendance could be low (poor weather, time of day, day of the week, etc.). If you were to go straight off of attendance, you would not be able to consider the factors that influenced the attendance performance. 
 
 
 ### Question B: The department collected its attendance figures using a random sample of 60 days per pool rather than tracking every day. What questions would you ask about the sample before relying on these figures for a story? What concerns would you raise in your story? (10 points)
 
 **Write your answer here:**
+Which days were data collected? Did certain days of the week get collected more than others? How did weekend days affect the count more than weekdays? How many people attend each pool and what is the membership cost for each? What does the membership demographics look like? Are there different features that vary from pool to pool (snack bar, diving board, tennis court, volleyball, club swim team, water slide, etc.)? 
+
+Major concerns are what days were collected, especially because a weekend vs a monday could skew the data collection because of drastically different numbers. Another concern is why people might be attending less. Could costs be going up? Is childcare in the area more expensive so families may go without the swim club memberships? What is the geography like for each (walkable, only accessible by car, city vs rural?)?
 
 
 ---

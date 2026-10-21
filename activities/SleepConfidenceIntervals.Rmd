@@ -41,7 +41,7 @@ sleep_stats
 
 **Answer this question:** Based on these numbers alone, what would you tell the health reporter? Why might it be risky to report the average as the definitive answer for all students?
 
-ANSWER HERE
+The average mean for hours of sleep is around 7.7 hours with a SD of 1.35 hours away from the mean. Students seem to be getting the CDC recommendation but I would stray away from reporting this because the sample size is only 37 students. 
 
 ### Task 3: Calculate the standard error
 
@@ -58,7 +58,8 @@ sleep_stats
 
 **Answer this question:** The standard error is much smaller than the standard deviation. Why? What does each one measure?
 
-ANSWER HERE
+SE tells us how much the mean varies if we took many different samples of students. Sample mean would vary by .22 of an hour from the sample mean of around 7.7. If we took a different sample of 37 students, we would expect our sample mean to vary by 0.22 hours. Standard deviation tells us how much the sample answers for mean hours varies from the sample mean. SE is smaller than SD because SD measures the sample and SE measures what the results would look like for a different sample of the same size. 
+
 
 ### Task 4: Calculate a 95% confidence interval
 
@@ -79,7 +80,7 @@ sleep_stats |>
 
 **Answer this question:** Write one sentence explaining what this confidence interval means in plain English that a reader would understand.
 
-ANSWER HERE
+The margin of error for our distribution is 0.45 and this helps us to understand the confidence interval. Our lower CI strays about 0.45 below the mean of 7.72 and the upper CI strays about 0.45 above the mean of 7.72. This means that we are confident that most of our sample distribution will lie within 0.45 hours away from the sample mean of sleep hours of 7.72. In plain English: We are 95% confident that our survey respondents will have mean sleep hours ranging plus or minus 0.45 hours away from the true mean of 7.72 hours. 
 
 ### Task 5: Visualize the distribution with the confidence interval
 
@@ -112,7 +113,7 @@ ggplot(sleep_data, aes(x = hours)) +
 
 **Answer this question:** Look at the chart. Notice that the confidence interval is much narrower than the spread of individual data points. Why? What's the difference between the variation in individual sleep hours and the uncertainty about the average?
 
-ANSWER HERE
+The CI is more narrow than the spread because it shows where the mean sleep hours respondents will lie. Individual sleep hours have a much wider range than the average mean of 7.72. 
 
 ### Task 6: The CDC question — is 7 hours within the interval?
 
@@ -134,7 +135,7 @@ sleep_stats |>
   b) "Students May Not Be Getting Enough Sleep, Survey Suggests"
   c) "Survey: Students Getting Recommended Amount of Sleep"
 
-ANSWER HERE
+I would choose C. Based on the CI, the upper and lower bounds for average mean hours ranges 0.45 hours from the mean of 7.72. Students on average are getting a mean sleep around 7 hours, justifying the CDC guidelines. 
 
 ### Task 7: What about a bigger sample?
 

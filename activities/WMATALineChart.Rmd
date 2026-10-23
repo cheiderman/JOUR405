@@ -58,4 +58,5 @@ weekly_wmata |>
 
 **Answer this question:** Describe the trend you see. Is ridership going up, down, or staying flat? What are the big dips, and what might explain them? What would you want to know before writing a story about Metro weekly ridership trends?
 
-ANSWER HERE
+Ridership starts on an incline above 5.5 million weekly riders, drops dramatically down to 2.5 million weekly riders in early 2026 then starts to rise again near 5.5 million. I would want to see the exact dates. Could this be due to weather? Maybe a snowstorm in Jan. affected ridership. Maybe it was schools being out too. I would also want to see the month by month breakdown for 2024. There could have also been closures due to construction. 
+

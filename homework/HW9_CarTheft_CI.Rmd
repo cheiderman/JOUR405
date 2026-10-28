@@ -10,6 +10,8 @@ Your editor wants to know what a "typical" month of car thefts looks like in Pri
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 # LOAD THE TIDYVERSE
+
+library(tidyverse)
 ```
 
 ### Task 2: Load the Prince George's county crime data
@@ -29,7 +31,7 @@ glimpse(car_thefts)
 
 We'll make a line chart using geom_line() to try and illustrate any trend over time. What's your initial reaction to the change in car thefts? Is there a trend? If your editor asked you "how many car thefts happen in a typical month?", what would you say based on this chart alone?
 
-PUT ANSWERS HERE
+The change in car thefts was not too surprising. Car thefts tended to be higher during warmer months and lower during colder months. Based on this chart, I would say the number of car thefts from 2023 to 2026 ranges between 211 and 611 thefts each month. Warmer months have higher numbers overall than colder ones.
 
 ```{r}
 

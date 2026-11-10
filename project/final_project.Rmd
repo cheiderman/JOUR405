@@ -1,1 +1,38 @@
+Final Project: Grammy Award for Song of the Year
+
+Are some songs more likely to win the Grammy Award for Song of the Year then others?
+
+Reason behind the project: I am a huge music lover and look forward to watching the Grammy's each year. I love making my own predictions ahead of the awards, but have never had a formal reason behind my picks beside my personal opinions. I am curious to learn if there are specific characteristics of songs that can make them more likely to win SOTY beyond the quality of production/lyrics/chart performance. 
+
+Research question: If we compare the songs nominated for the SOTY Grammy Award since 1990, can we determine if certain characteristics make the record more likely to win? 
+
+H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Song of the Year. 
+---For this hypothesis, I will count total words including repeated choruses. To find this data, I will use https://wordcounter.io/ to manually check the number of lyrics in each song---
+
+H2 (BPM): Records with a faster BPM of 120 are more likely to win the Grammy Award for Song of the Year than other nominees. 
+---For this hypothesis, I will group songs by 30 beats to organize BPM. Songs will most likely fall between 60 and 180 BPM. I will use Tunebat to determine the BPM. ---
+
+H3 (Key): Songs in major keys are more likely to win the Grammy Award for Song of the Year than songs in minor keys. 
+---For this hypothesis, I will determine song key for each nominee using Tunebat.----
+
+To test these hypothesos, I can examine all of the songs nominated since 1990 for SOTY. I can determine if the number of lyrics, the BPM, and the key can make a record more likely to win over others. From these findings, I hope to see a trend on why certain songs might win over others. 
+
+Data: For this project, I can will use official data from the Recording Academy to determine the list of nominees and winners for each year (1990-present). I will determine BPM and key from Tubebat. I will use https://wordcounter.io/ to count the number of lyrics. 
+
+Link to CSV data: 
+```{r}
+read.csv("https://docs.google.com/spreadsheets/d/1ZfV7kikhXX5dvJQoCDlVU1wXueeUFTIkvqXqF4mQ6_I/edit?usp=sharing")
+```
+
+***Key for my CSV data:
+--year: Year of the Grammy ceremony (1990–2024)
+--song_title: Name of the nominated song track
+--artist: Name of performing artist
+--is_winner: Grouped by 1 and 0. 1 for Song of the Year winners, 0 for nominees.
+--lyric_count: Total word count in the lyrics, including repeated choruses
+--bpm: Beats per minute
+--key: Key letter of the song
+--mode: Used to compare Major key vs. Minor key
+--key_mode: This will help combine key letter with the mode.
+
 

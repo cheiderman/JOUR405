@@ -1,18 +1,18 @@
-Final Project: Grammy Award for Song of the Year
+Final Project: Grammy Award for Record of the Year
 
 ***Are some songs more likely to win the Grammy Award for Song of the Year then others?***
 
-Reason behind the project: I am a huge music lover and look forward to watching the Grammy's each year. I love making my own predictions ahead of the awards, but have never had a formal reason behind my picks beside my personal opinions. I am curious to learn if there are specific characteristics of songs that can make them more likely to win SOTY beyond the quality of production/lyrics/chart performance. 
+Reason behind the project: I am a huge music lover and look forward to watching the Grammy's each year. I love making my own predictions ahead of the awards, but have never had a formal reason behind my picks beside my personal opinions. I am curious to learn if there are specific characteristics of songs that can make them more likely to win ROTY beyond the quality of production/lyrics/chart performance. 
 
-Research question: If we compare the songs nominated for the SOTY Grammy Award since 1990, can we determine if certain characteristics make the record more likely to win? 
+Research question: If we compare the songs nominated for the ROTY Grammy Award since 1990, can we determine if certain characteristics make the record more likely to win? 
 
-***H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Song of the Year. ***
+***H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Record of the Year. ***
 ---For this hypothesis, I will count total words including repeated choruses. To find this data, I will use https://wordcounter.io/ to manually check the number of lyrics in each song---
 
-***H2 (BPM): Records with a faster BPM of 120 are more likely to win the Grammy Award for Song of the Year than other nominees.*** 
+***H2 (BPM): Records with a faster BPM of 120 are more likely to win the Grammy Award for Record of the Year than other nominees.*** 
 ---For this hypothesis, I will group songs by 30 beats to organize BPM. Songs will most likely fall between 60 and 180 BPM. I will use Tunebat to determine the BPM. ---
 
-***H3 (Key): Songs in major keys are more likely to win the Grammy Award for Song of the Year than songs in minor keys. ***
+***H3 (Key): Songs in major keys are more likely to win the Grammy Award for Record of the Year than songs in minor keys. ***
 ---For this hypothesis, I will determine song key for each nominee using Tunebat.----
 
 To test these hypothesos, I can examine all of the songs nominated since 1990 for SOTY. I can determine if the number of lyrics, the BPM, and the key can make a record more likely to win over others. From these findings, I hope to see a trend on why certain songs might win over others. 
@@ -29,7 +29,7 @@ read.csv("https://docs.google.com/spreadsheets/d/1ZfV7kikhXX5dvJQoCDlVU1wXueeUFT
 --year: Year of the Grammy ceremony (1990–2024)
 --song_title: Name of the nominated song track
 --artist: Name of performing artist
---is_winner: Grouped by 1 and 0. 1 for Song of the Year winners, 0 for nominees.
+--is_winner: Grouped by 1 and 0. 1 for Record of the Year winners, 0 for nominees.
 --lyric_count: Total word count in the lyrics, including repeated choruses
 --bpm: Beats per minute
 --key: Key letter of the song

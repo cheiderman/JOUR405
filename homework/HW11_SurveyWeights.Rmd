@@ -153,4 +153,4 @@ Earlier in class this week, we looked at the 2024 UMD Belonging and Community Su
 
 **Question 5:** Based on what you've learned in this assignment, write 2-3 paragraphs as if you were a reporter evaluating the UMD survey before writing a story based on it. Address: (1) what the lack of weighting means for how you'd use the results, (2) which groups in the UMD survey appeared most underrepresented based on Figures 1 and 2, and (3) what question you would ask the survey's authors before publishing.
 
-The 2024 UMD Belonging and Community Survey yieled a 23% response rate of UMD community respondents. 
+The 2024 UMD Belonging and Community Survey yielded a 23% response rate of UMD community respondents. The survey results were not weighted, something that can vastly improve our understanding of the real results from the survey. 

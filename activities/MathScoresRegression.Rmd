@@ -32,7 +32,7 @@ schools |> arrange(`FARMS Pct`) |> head(10)
 
 Look at the distribution of FARMS percentages. Do any values look unusual or suspicious? What might it mean if a school has a FARMS percentage of exactly 100? Write two or three sentences describing what you see and whether anything concerns you.
 
-ANSWER HERE
+Off first glance, I wouldn't say that most of the percentages seem odd to me. However, for the Montgomery Board Member to say that schools with lower percentages of FARMS students score higher, I would want to know more about what the standard percentage is for most elementary schools in the county/ state/ nationally, etc. The FARMS percentage of 100 is a bit odd, so I also would want to see if there is a special reason the school might offer free lunch. My dad teaches special ed at a Title I school and all of the students get free meals. 
 
 
 ### Task 2: Create a Scatterplot and Describe the Results
@@ -50,7 +50,7 @@ schools |>
 
 Describe what you see. Is there a clear trend? Does the regression line look like it represents the data well, or does it seem to be pulled in an odd direction? Connect what you observed in Task 1 to what you see here.
 
-ANSWER HERE
+There does not seem to be a clear trend because the data points are scattered pretty wide. There does not seem to be a clear negative or positive relationship between the data. Although, most of the data points seem to lie between 0 and 50 FARMS percentage. For the points at 100% FARMS, the met expectation percentage does not seem to be that much different than lower FARMS percentages. 
 
 
 ### Task 3: Run the Regression Model
@@ -68,7 +68,10 @@ The **p-value** tells you whether the relationship is statistically significant.
 
 Report all three values and describe what they tell you. Does this model support the school board member's claim? Is this even a model worth using?
 
-ANSWER HERE
+The p-value: 0.1225. This p-value is higher than 0.05, indicating the result is not statistically significant. 
+The Adjusted R-squared:0.0254 aka 2.54%, which is a fairly low number. 
+The coefficient for FARMS Pct: 0.12349. This percentage is positive, which tells us that higher FARMS predicts higher math scores. The percentage is fairly low, so it is probably not very significant. 
+Based on these values, I would not say that the model is very useful in supporting or not supporting the board member's claim. 
 
 
 ### Task 4: What's Driving the Problem? Filter and Rerun.
@@ -98,7 +101,7 @@ cat("  Adjusted R-squared:", summary(model_filtered)$adj.r.squared, "\n")
 
 How did removing those schools change the model? Did the coefficient change direction? Did the p-value or R-squared improve meaningfully? What does this tell you about the influence of suspicious data values on a regression model?
 
-ANSWER HERE
+The coefficient and r-squared went up in value. The p-value is now less than 0.05, meaning it is statistically significant. The suspicious data values skewed our results which would falsely show our data was not significant.
 
 
 ### Task 5: Even the Better Model Has Problems
@@ -132,7 +135,7 @@ head(schools_filtered |> select(1, `FARMS Pct`, `% Met or Exceeded Math Expectat
 
 What are the largest residuals? Given the model's weak R-squared, how much confidence would you have in labeling these schools as over- or under-performers? Why?
 
-ANSWER HERE
+The largest residual is around 28. I would not have great confidence labeling the schools because the numbers do not seem strong enough to make a definitive report on. 
 
 
 ### Task 6: Write the Story Pitch
@@ -141,4 +144,4 @@ You've now run two models, examined the data quality and seen that even a cleane
 
 Write a short story pitch (3-5 sentences) that addresses the following: Does the data support or contradict the claim? What data quality issues did you find? What would you need - different data, a different model, additional reporting - before you could responsibly publish a story about this claim? Who would you call first?
 
-ANSWER HERE
+A Montgomery County school board member made a claim that schools with lower FARMS percentages earn met or exceeding expectations on math state tests. Based on county data, there are not data points strong enough to support or deny the board members claim without challenges. Before publishing a story, I would want more data about FARMS in general and the average math testing data for elementary students in the state. I would also be curious to see if the data for reading has a similar effect. I would call other school boards in the state to see if this is a common question. 

@@ -1,6 +1,6 @@
 ---
 title: "Identifying Schools with Biggest Differences in Math Test Scores, Part 2"
-author: "YOUR NAME"
+author: "Cait Heiderman"
 ---
 
 ```{r}
@@ -30,7 +30,7 @@ schools |> arrange(desc(`FARMS Pct`)) |> head(10)
 
 Are there any data quality issues like the ones you found in the Pennsylvania data? How does the distribution of FARMS percentages compare between the two counties? Note anything that concerns you or gives you confidence in the data.
 
-ANSWER HERE
+The FARMS percentages for Montgomery County, Maryland have a wide range from 4 to 96%. 96% seems awfully high, but not as strange as 100% from the PA data. Between the two counties, the data is not too drastically different from first glance. However, when I look at the MD data, it visually supports the PA board members theory (without any other tests backing it though).
 
 
 ### Task 2: Create a Scatterplot and Compare (5 points)
@@ -39,7 +39,7 @@ Replace the REPLACE_ME value with the correct variable name to create a scatterp
 
 ```{r}
 schools |>
-  ggplot(aes(x = `REPLACE_ME`, y = `% Met or Exceeded Math Expectations`)) +
+  ggplot(aes(x = `FARMS Pct`, y = `% Met or Exceeded Math Expectations`)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "red") +
   labs(x = "FARMS Percentage", y = "% Met or Exceeded Math Expectations",
@@ -48,7 +48,7 @@ schools |>
 
 Describe what you see. Then compare this scatterplot specifically to the Pennsylvania one: what differences do you notice in the direction, strength, and spread of the relationship? The two counties share a name and are both suburban — what might explain why they look so different?
 
-ANSWER HERE
+This graph give a much clearer picture of the data, with a negative relationship displayed based on the line of best fit. The PA graph was loosely scattered, this one gives a better idea of the relationship. The counties may look differengt because they have different populations. One may have wealthier families than others. The funding and curricula could also differ between each county. 
 
 
 ### Task 3: Linear Regression Model (5 points)
@@ -56,13 +56,16 @@ ANSWER HERE
 Replace the REPLACE_ME value with the correct variable name to run a linear regression model predicting math scores from FARMS percentage.
 
 ```{r}
-model <- lm(`REPLACE_ME` ~ `FARMS Pct`, data = schools)
+model <- lm(`% Met or Exceeded Math Expectations` ~ `FARMS Pct`, data = schools)
 summary(model)
 ```
 
 Report the three key statistics: the p-value, the Adjusted R-squared, and the coefficient for FARMS Pct. Then interpret them together — not separately. What does the combination of these three numbers tell you about the relationship between poverty and math scores in Montgomery County, Md.? Is this model worth using? How does it compare to the Pennsylvania model?
 
-ANSWER HERE
+The p-value: 0.00000000000000022. This is much lower than 0.05, which means the data is statistically significant.
+The Adjusted R-squared: 0.6734 aka 67%.
+The coefficient for FARMS Pct: -0.59511. This percentage is negative, meaning higher FARMS predicts lower scores.
+Based on these values, I would say the relationship is that higher FARMS predicts lower scores. 
 
 
 ### Task 4: Identifying Schools with the Biggest Residuals (6 points)
@@ -72,9 +75,9 @@ Replace the REPLACE_ME values with the correct variable names to calculate predi
 ```{r}
 schools <- schools |>
   mutate(
-    predicted = predict(REPLACE_ME),
+    predicted = predict(model),
     residual = `% Met or Exceeded Math Expectations` - predicted,
-    abs_residual = abs(REPLACE_ME)
+    abs_residual = abs(residual)
   ) |>
   arrange(desc(abs_residual))
 
@@ -88,7 +91,21 @@ For each of the two schools, answer:
 - Does anything in that profile help explain why the school is over- or under-performing the model?
 - What would your first reporting question be to the principal of that school?
 
-ANSWER HERE
+Fox Chapel has the largest positive residual.
+- What does the demographic and economic profile of the zip code look like?
+26,406 person population. $119,731 median household income. 295 Black, 25% Hispanic, 22% White. 9.8% of persons below poverty line. 
+- Does anything in that profile help explain why the school is over- or under-performing the model?
+Firly high household income, also 52% with Bachelors degree or higher. 
+- What would your first reporting question be to the principal of that school?
+Do you believe that the state testing scores for math for this school has anything to do with FARMS eligble students?
+
+Germantown Elementary has the largest negative residual. 
+- What does the demographic and economic profile of the zip code look like?
+62,738 person population. $115,022 median household income. 27% Black, 26% White, 22% Hispanic. 8.3% of persons below poverty line. 
+- Does anything in that profile help explain why the school is over- or under-performing the model?
+No, the numbers are fairly similar to Fox Chapel. 48.9% have Bachelors or higher. 
+- What would your first reporting question be to the principal of that school?
+Do you believe that the state testing scores for math for this school has anything to do with FARMS eligble students?
 
 
 ### Task 5: Evaluate the Model and Write the Pitch (7 points)
@@ -97,4 +114,4 @@ You've now run this analysis on two counties. Return to the school board member'
 
 Write a short story pitch of 4-6 sentences that addresses all of the following: Does the Maryland data support or contradict the claim? How does it compare to what you found in Pennsylvania? What would you ask the school board member if you called them for comment? And what's the most interesting specific finding from your residuals analysis: which school would you want to visit first, and why?
 
-ANSWER HERE
+Montgomery County, Maryland data at face value supports a Montgomery, PA school board members claim that lower FARMS percentages yield higher state math testing scores. Based on p-value, r-squared, co-efficient and line of best fit plot, higher FARMS predicts lower scores. The PA data does not show a strong relationship between the variables. I would ask the school board member why they made this claim and see what evidence they had to make it. Based on my residuals analysis, the two schools on the opposite scales of residuals had very similar demographics, leading me to believe that the scores are not reliant on student demographics. 

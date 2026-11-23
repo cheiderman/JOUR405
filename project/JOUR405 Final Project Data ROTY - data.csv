@@ -1,0 +1,165 @@
+year,is_winner,song_title,artist,lyric_count,bpm,key,mode,key_mode
+2026,0,APT. ,ROSE & Bruno Mars,336,149,c,minor,c minor
+2026,0,The Subway,Chappell Roan,316,166,b flat,major,b flat major
+2026,0,Abracadabra,Lady Gaga,264,126,a sharp,minor,a sharp minor
+2026,0,WILDFLOWER,Billie Eilish,304,148,f sharp,minor,f sharp minor
+2026,0,Anxiety ,Doechii,494,129,c,major,c major
+2026,0,Manchild,Sabrina Carpenter,300,123,g,major,g major
+2026,0,DtMF,Bad Bunny,479,136,g ,minor,g minor
+2026,1,luther,Kendrick Lamar & SZA,407,138,d,major,d major
+2025,0,Fortnight,Taylor Swift & Post Malone,319,192,B   ,major,b major
+2025,0,"Good Luck, Babe!",Chappell Roan,452,117,b,minor,b minor
+2025,0,BIRDS OF A FEATHER,Billie Eilish,290,105,d,major,d major
+2025,0,360,Charli XCX,260,120,c,major,c major
+2025,0,Espresso,Sabrina Carpenter,380,104,c,major,c major
+2025,0,TEXAS HOLD 'EM,Beyonce,538,110,d,major,d major
+2025,0,Now and Then,The Beatles,130,87,a ,minor,a minor
+2025,1,Not Like Us,Kendrick Lamar,901,101,c sharp,major,c sharp major
+2024,1,Flowers,Miley Cyrus,334,118,c,major,c major
+2024,0,Worship,Jon Batiste,509,124,f,minor,f minor
+2024,0,Not Strong Enough,boygenius,231,127,c sharp,major,c sharp major
+2024,0,What Was I Made For?,Billie Eilish,164,79,c,major,c major
+2024,0,On My Mama,Victoria Monet,366,153,e ,minor,e minor
+2024,0,Vampire,Olivia Rodrigo,388,137,f,major,f major
+2024,0,Anti-Hero,Taylor Swift,333,97,e ,major,e major
+2024,0,Kill Bill,SZA,351,89,a flat,major,a flat major
+2023,1,About Damn Time,Lizzo,355,109,a sharp,minor,a sharp minor
+2023,0,Don't Shut Me Down,ABBA,353,100,c,major,c major
+2023,0,Easy on Me,Adele,208,142,f,major,f major
+2023,0,Break My Soul,Beyonce,655,115,c sharp,minor,c sharp minor
+2023,0,Good Morning Gorgeous,Mary J. Blige,299,132,c sharp,major,c sharp major
+2023,0,You and Me on the Rock,Brandi Carlile featuring Lucius,394,172,c sharp,major,c sharp major
+2023,0,Woman,Doja Cat,435,108,f,minor,f minor
+2023,0,Bad Habit,Steve Lacy,417,169,c sharp,major,c sharp major
+2023,0,The Heart Part 5,Kendrick Lamar,973,97,c sharp,minor,c sharp minor
+2023,0,As It Was,Harry Styles,236,174,f sharp,minor,f sharp minor
+2022,1,Leave the Door Open,Silk Sonic,476,148,f,major,f major
+2022,0,I Still Have Faith in You,ABBA,319,75,f,major,f major
+2022,0,Freedom,Jon Batiste,547,115,c sharp,major ,c sharp major
+2022,0,I Get a Kick Out of You,Tony Bennett & Lady Gaga,222,79,g,minor,g minor
+2022,0,Peaches,Justin Bieber featuring Daniel Caesar & Giveon,491,90,c,major,c major
+2022,0,Right on Time,Brandi Carlile,172,122,g,major,g major
+2022,0,Kiss Me More,Doja Cat featuring SZA,497,111,a flat,major,a flat major
+2022,0,Happier Than Ever,Billie Eilish,315,81,c ,major,c major
+2022,0,Montero (Call Me by Your Name),Lil Nas X,375,179,g sharp,minor,g sharp minor
+2022,0,Drivers License,Olivia Rodrigo,356,144,b flat,major,b flat major
+2021,1,Everything I Wanted,Billie Eilish,313,120,f sharp,minor,f sharp minor
+2021,0,Black Parade,Beyonce,701,120,c sharp,major,c sharp major
+2021,0,Colors,Black Pumas,352,180,c sharp,minor,c sharp minor
+2021,0,Rockstar,DaBaby featuring Roddy Ricch,656,90,b ,major,b major
+2021,0,Say So,Doja Cat,460,111,b,minor,b minor
+2021,0,Don't Start Now,Dua Lipa,304,124,b,minor,b minor
+2021,0,Circles,Post Malone,302,120,c,major,c major
+2021,0,Savage,Megan Thee Stallion featuring Beyonce,790,84,a sharp,minor,a sharp minor
+2020,1,Bad Guy,Billie Eilish,222,135,b,major,b major
+2020,0,"Hey, Ma",Bon Iver,267,144,c,major,c major
+2020,0,7 Rings,Ariana Grande,490,140,c sharp,minor,c sharp minor
+2020,0,Hard Place,H.E.R.,318,160,a,major,a major
+2020,0,Talk,Khalid,269,136,c,major,c major
+2020,0,Old Town Road,Lil Nas X featuring Billy Ray Cyrus,311,136,f sharp,major,f sharp major
+2020,0,Truth Hurts,Lizzo,429,158,e ,minor,e minor
+2020,0,Sunflower,Post Malone & Swae Lee,300,90,d,major,d major
+2019,1,This Is America,Childish Gambino,613,120,f,major,f major
+2019,0,I Like It,"Cardi B, Bad Bunny & J Balvin",768,136,f,minor,f minor
+2019,0,The Joke,Brandi Carlile,248,75,g,major,g major
+2019,0,God's Plan,Drake,347,77,g,major,g major
+2019,0,Shallow,Lady Gaga & Bradley Cooper,188,96,g,major,g major
+2019,0,All the Stars,Kendrick Lamar & SZA,488,97,a flat,major,a flat major
+2019,0,Rockstar,Post Malone featuring 21 Savage,500,160,f,minor,f minor
+2019,0,The Middle,"Zedd, Maren Morris & Grey",343,107,g,major,g major
+2018,1,24K Magic,Bruno Mars,480,107,c sharp,major,c sharp major
+2018,0,Despacito,Luis Fonsi & Daddy Yankee featuring Justin Bieber,498,178,d,major,d major
+2018,0,Redbone,Childish Gambino,264,160,c sharp,major,c sharp major
+2018,0,The Story of O.J.,JAY-Z,399,166,g,major,g major
+2018,0,HUMBLE.,Kendrick Lamar,603,150,c sharp,minor,c sharp minor
+2017,1,Hello,Adele,365,79,f,minor,f minor
+2017,0,Formation,Beyonce,699,122,f,minor,f minor
+2017,0,7 Years,Lukas Graham,439,120,b flat,major,b flat major
+2017,0,Work,Rihanna featuring Drake,575,92,b,major,b major
+2017,0,Stressed Out,Twenty One Pilots,526,170,e ,minor,e minor
+2016,1,Uptown Funk,Mark Ronson featuring Bruno Mars,636,115,c,major,c major
+2016,0,Really Love,D'Angelo,348,79,e ,minor,e minor
+2016,0,Thinking Out Loud,Ed Sheeran,324,79,d,major,d major
+2016,0,Blank Space,Taylor Swift,501,96,f,major,f major
+2016,0,Can't Feel My Face,The Weeknd,493,108,a,minor,a minor
+2015,1,Stay with Me,Sam Smith,163,84,c,major,c major
+2015,0,Fancy,Iggy Azalea featuring Charli XCX,478,95,a sharp,minor,a sharp minor
+2015,0,All About That Bass,Meghan Trainor,486,134,a,major,a major
+2015,0,Chandelier,Sia,376,117,c sharp,major,c sharp major
+2015,0,Shake It Off,Taylor Swift,584,160,g,major,g major
+2014,1,Get Lucky,Daft Punk featuring Pharrell Williams & Nile Rodgers,555,116,f sharp,major,f sharp major
+2014,0,Radioactive,Imagine Dragons,278,136,a,major,a major
+2014,0,Royals,Lorde,373,85,g,major,g major
+2014,0,Locked Out of Heaven,Bruno Mars,314,144,f,major,f major
+2014,0,Blurred Lines,Robin Thicke featuring T.I. & Pharrell Williams,611,120,g,major,g major
+2013,1,Somebody That I Used to Know,Gotye featuring Kimbra,364,129,c,major,c major
+2013,0,Lonely Boy,The Black Keys,190,166,d,major,d major
+2013,0,Stronger (What Doesn't Kill You),Kelly Clarkson,397,116,c,major,c major
+2013,0,We Are Young,fun. featuring Janelle Monae,338,184,b flat,major,b flat major
+2013,0,Thinkin Bout You,Frank Ocean,320,130,c,major,c major
+2013,0,We Are Never Ever Getting Back Together,Taylor Swift,364,86,g ,major,g major
+2012,1,Rolling in the Deep,Adele,550,105,a flat,major ,a flat major
+2012,0,Holocene,Bon Iver,190,148,c sharp,major,c sharp major
+2012,0,Grenade,Bruno Mars,426,110,d,minor,d minor
+2012,0,The Cave,Mumford & Sons,297,142,e ,major,e major
+2012,0,Firework,Katy Perry,364,124,a flat,major,a flat major
+2011,1,Need You Now,Lady A,260,108,e ,major,e major
+2011,0,Nothin' on You,B.o.B featuring Bruno Mars,292,104,b flat,major,b flat major
+2011,0,Love the Way You Lie,Eminem featuring Rihanna,725,87,b flat,major,b flat major
+2011,0,F**k You,CeeLo Green,473,127,c,major,c major
+2011,0,Empire State of Mind,JAY-Z featuring Alicia Keys,729,174,g sharp,minor,g sharp minor
+2010,1,Use Somebody,Kings of Leon,158,137,c,major,c major
+2010,0,Halo,Beyonce,421,80,b,minor,b minor
+2010,0,I Gotta Feeling,The Black Eyed Peas,224,128,c,major,c major
+2010,0,Poker Face,Lady Gaga,499,119,e ,major,e major
+2010,0,You Belong with Me,Taylor Swift,396,130,f sharp,major,f sharp major
+2009,1,Please Read the Letter,Alison Krauss & Robert Plant,277,143,a ,major,a major
+2009,0,Chasing Pavements,Adele,289,80,f,minor,f minor
+2009,0,Viva la Vida,Coldplay,288,138,f,minor,f minor
+2009,0,Bleeding Love,Leona Lewis,394,104,f,major,f major
+2009,0,Paper Planes,M.I.A.,420,172,d,major,d major
+2008,1,Rehab,Amy Winehouse,313,72,c,major,c major
+2008,0,Irreplaceable,Beyonce,547,176,g,minor,g minor
+2008,0,The Pretender,Foo Fighters,459,173,a,major,a major
+2008,0,Umbrella,Rihanna featuring JAY-Z,487,174,c sharp,major,c sharp major
+2008,0,What Goes Around...Comes Around,Justin Timberlake,912,76,g ,major,g major
+2007,1,Not Ready to Make Nice,Dixie Chicks,336,84,f sharp,major,f sharp major
+2007,0,Be Without You,Mary J. Blige,550,147,d,minor,d minor
+2007,0,You're Beautiful,James Blunt,186,82,c,minor ,c minor
+2007,0,Crazy,Gnarls Barkley,211,112,a flat,major,a flat major
+2007,0,Put Your Records On,Corinne Bailey Rae,306,96,a ,major,a major
+2006,1,Boulevard of Broken Dreams,Green Day,258,167,a flat,major,a flat major
+2006,0,We Belong Together,Mariah Carey,493,140,c,major,c major
+2006,0,Feel Good Inc.,Gorillaz,408,139,f sharp,major,f sharp major
+2006,0,Hollaback Girl,Gwen Stefani,476,110,a sharp,minor,a sharp minor
+2006,0,Gold Digger,Kanye West featuring Jamie Foxx,752,93,c sharp,minor,c sharp minor
+2005,1,Here We Go Again,Ray Charles & Norah Jones,132,67,b flat,major,b flat major
+2005,0,Let's Get It Started,The Black Eyed Peas,571,105,d,major,d major
+2005,0,American Idiot,Green Day,182,186,c sharp,major,c sharp major
+2005,0,Heaven,Los Lonely Boys,202,92,b,major,b major
+2005,0,Yeah!,Usher featuring Lil Jon & Ludacris,668,105,d,major,d major
+2004,1,Clocks,Coldplay,163,131,f,minor,f minor
+2004,0,Crazy in Love,Beyonce featuring JAY-Z,787,99,d,minor,d minor
+2004,0,Where Is the Love?,The Black Eyed Peas featuring Justin Timberlake,656,94,f,major,f major
+2004,0,Lose Yourself,Eminem,787,171,d,major,d major
+2004,0,Hey Ya!,OutKast,462,80,e ,minor,e minor
+2003,1,Don't Know Why,Norah Jones,150,89,f,major,f major
+2003,0,A Thousand Miles,Vanessa Carlton,267,95,b,major,b major
+2003,0,Without Me,Eminem,726,112,g,major,g major
+2003,0,Dilemma,Nelly featuring Kelly Rowland,749,168,d,minor,d minor
+2003,0,How You Remind Me,Nickelback,391,172,b flat,major,b flat major
+2002,1,Walk On,U2,319,100,d ,major,d major
+2002,0,Video,India.Arie,571,170,a,minor,a minor
+2002,0,Fallin',Alicia Keys,223,96,b,minor,b minor
+2002,0,Ms. Jackson,OutKast,690,95,e ,minor,e minor
+2002,0,Drops of Jupiter (Tell Me),Train,453,79,c,major,c major
+2001,1,Beautiful Day,U2,275,136,d,major,d major
+2001,0,Say My Name,Destiny's Child,875,138,f,minor,f minor
+2001,0,I Try,Macy Gray,351,76,d,major,d major
+2001,0,Music,Madonna,244,120,g,major,g major
+2001,0,Bye Bye Bye,*NSYNC,427,173,g sharp,minor,g sharp minor
+2000,1,Smooth,Santana featuring Rob Thomas,341,116,a,major,a major
+2000,0,I Want It That Way,Backstreet Boys,268,99,f sharp,minor,f sharp minor
+2000,0,Believe,Cher,345,133,f sharp ,major,f sharp major
+2000,0,Livin' la Vida Loca,Ricky Martin,360,178,c sharp,minor,c sharp minor
+2000,0,No Scrubs,TLC,736,93,g sharp,minor,g sharp minor

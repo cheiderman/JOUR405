@@ -1,5 +1,66 @@
 Final Project: Grammy Award for Record of the Year
 
+##Tests to run for my final project:
+
+***H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Record of the Year. ***
+Compare lyrics between winners and non-winners
+Two sample T-test to compare lyric length and songs that won
+Test: Two sample T-test
+DV: is_winner (0 = non-winner, 1 = winner)
+DV: lyric_count
+
+***H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Record of the Year. ***
+Lyric count predicting Grammy win
+Test: Binary logistic regression
+DV: is_winner (0 = non-winner, 1 = winner)
+IV: lyric_count
+
+***H2 (BPM): Records with a faster BPM of 120 are more likely to win the Grammy Award for Record of the Year than other nominees.*** 
+Compare BPM between winners and non-winners
+Two sample T-test to compare song BPM and songs that won. 
+Test: Two sample T-test
+IV: is_winner (0 = non-winner or 1 = winner)
+DV: song BPM
+
+***H2 (BPM): Records with a faster BPM of 120 are more likely to win the Grammy Award for Record of the Year than other nominees.*** 
+BPM predicting Grammy win
+Test: Chi-square test of independence
+IV: bpm_category (I would create a binary variable with ranges for the BPM. Ex: 1 [60-80], 2 [81-100], 3 [101-120], etc.)
+DV: is_winner (winner/non-winner)
+
+***H3 (Key): Songs in major keys are more likely to win the Grammy Award for Record of the Year than songs in minor keys. ***
+Are more ROTY winners major or minor modes?
+Test: Chi-squared of independence
+IV: mode (major/minor)
+DV: is_winner (winner/non-winner)
+
+##Multiple comparisons
+Comparing BPM and lyric count
+Pearson for BPM and lyric count
+Test: Pearson test
+IV: BPM
+DV: lyric_count
+
+##Multiple comparisons
+BPM and Mode
+Test: Pearson test
+IV: Mode (Major = 1, Minor = 0)
+DV: BPM
+
+##Multiple comparisons
+Mode and lyric count
+Test: Pearson test
+IV: Mode (Major = 1, Minor = 0)
+DV: lyric_count
+
+##Multiple comparisons
+Comparing the three variables against Grammy ROTY winning status
+Test: Multiple logistic regression (binomial)
+DV: is_winner (0 = non-winner, 1 = winner)
+IVs: bpm, mode, lyric_count
+
+----------------------------------------------------------------------------------------------------------
+
 ***Are some songs more likely to win the Grammy Award for Song of the Year then others?***
 
 Reason behind the project: I am a huge music lover and look forward to watching the Grammy's each year. I love making my own predictions ahead of the awards, but have never had a formal reason behind my picks beside my personal opinions. I am curious to learn if there are specific characteristics of songs that can make them more likely to win ROTY beyond the quality of production/lyrics/chart performance. 
@@ -19,10 +80,11 @@ To test these hypothesos, I can examine all of the songs nominated since 1990 fo
 
 Data: For this project, I can will use official data from the Recording Academy to determine the list of nominees and winners for each year (1990-present). I will determine BPM and key from Tubebat. I will use https://wordcounter.io/ to count the number of lyrics. 
 
+
 ***Link to CSV data:***
 ```{r}
 library(tidyverse)
-read.csv("https://docs.google.com/spreadsheets/d/1ZfV7kikhXX5dvJQoCDlVU1wXueeUFTIkvqXqF4mQ6_I/edit?usp=sharing")
+read_csv("https://raw.githubusercontent.com/cheiderman/JOUR405/refs/heads/main/project/JOUR405%20Final%20Project%20Data%20ROTY%20-%20data.csv")
 ```
 
 ***Key for my CSV data:***

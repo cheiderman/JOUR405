@@ -1,5 +1,203 @@
 Final Project: Grammy Award for Record of the Year
 
+TESTS FOR MY PROJECT
+
+```{r}
+library(tidyverse)
+roty_data <- read_csv("https://raw.githubusercontent.com/cheiderman/JOUR405/refs/heads/main/project/JOUR405%20Final%20Project%20Data%20ROTY%20-%20data.csv")
+```
+
+***H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Record of the Year. ***
+Compare lyrics between winners and non-winners
+Two sample T-test to compare lyric length and songs that won
+Test: Two sample T-test
+DV: is_winner (0 = non-winner, 1 = winner)
+DV: lyric_count
+
+```{r}
+roty_data <- roty_data|>
+  mutate(
+    is_winner = as.numeric(is_winner))
+```
+
+```{r}
+table(roty_data$is_winner)
+```
+
+
+```{r}
+roty_data |>
+  summarize(
+    mean_lyrics = mean(lyric_count, na.rm = TRUE),
+    sd_lyrics = sd(lyric_count, na.rm = TRUE),
+    n = n()
+  )
+```
+
+```{r}
+t.test(
+  roty_data$lyric_count[roty_data$is_winner == 1],
+  roty_data$lyric_count[roty_data$is_winner == 0],
+  alternative = "greater",
+  var.equal = FALSE)
+```
+
+##My understanding of the results
+-Mean lyric count for non-winners (0) is  425.4161
+-Mean lyric count for winners (1) is 359.8519
+-T-statistic is -1.7663. The negative value tells me that winners had a lower average lyric count than non-winners
+-P-value is 0.08569. Because the p-value is more than 0.05, the test did not yield statistically significant evidence that the average lyric count differs between winners and non-winners. 
+
+
+######
+
+***H2 (BPM): Records with a faster average BPM are more likely to win the Grammy Award for Record of the Year than other nominees.*** 
+Compare BPM between winners and non-winners
+Two sample T-test to compare song BPM and songs that won. 
+Test: Two sample T-test
+IV: is_winner (0 = non-winner or 1 = winner)
+DV: song BPM
+
+```{r}
+roty_data <- roty_data|>
+  mutate(
+    is_winner = as.numeric(is_winner))
+```
+
+```{r}
+table(roty_data$is_winner)
+```
+
+
+```{r}
+roty_data |>
+  summarize(
+    mean_lyrics = mean(bpm, na.rm = TRUE),
+    sd_lyrics = sd(bpm, na.rm = TRUE),
+    n = n()
+  )
+```
+
+```{r}
+t.test(
+  roty_data$bpm[roty_data$is_winner == 1],
+  roty_data$bpm[roty_data$is_winner == 0],
+  alternative = "greater",
+  var.equal = FALSE)
+```
+##My understanding of the results
+-Mean bpm for non-winners (0) is  123.8759
+-Mean bpm for winners (1) is 113.8519
+-T-statistic is -1.8395. The negative value tells me that winners had a lower BPM count than non-winners.
+-P-value is 0.07239. Because the p-value is more than 0.05, the test did not yield statistically significant evidence that the average bpm differs between winners and non-winners. 
+
+
+#######
+
+***H3 (Key): Songs in major keys are more likely to win the Grammy Award for Record of the Year than songs in minor keys. ***
+Are more ROTY winners major or minor modes?
+Test: Chi-squared of independence
+IV: mode (major/minor)
+DV: is_winner (winner/non-winner)
+
+```{r}
+mode_table <- table(roty_data$mode, roty_data$is_winner)
+```
+```{r}
+mode_table
+```
+
+```{r}
+chisq.test(mode_table)
+```
+
+```{r}
+roty_data |>
+  group_by(mode) |>
+  summarize(
+    total_songs = n(),
+    winner = sum(is_winner),
+    win_percent = mean(is_winner) * 100
+  )
+```
+
+##My understanding of the results
+-The p-value is 0.05711, which is just slightly above 0.05. It is very close to statistical significant results. 
+
+################
+
+
+##Multiple comparisons
+Comparing BPM and lyric count
+Pearson for BPM and lyric count
+Test: Pearson test
+IV: BPM
+DV: lyric_count
+
+```{r}
+cor.test(
+  roty_data$bpm,
+  roty_data$lyric_count,
+  method = "pearson"
+)
+```
+
+##Multiple comparisons
+BPM and Mode
+Test: Pearson test
+IV: Mode (Major = 1, Minor = 0)
+DV: BPM
+
+```{r}
+cor.test(
+  roty_data$mode,
+  roty_data$bpm,
+  method = "pearson"
+)
+```
+
+##I got an error for this one saying: 
+
+Error in cor.test.default(roty_data$mode, roty_data$bpm, method = "pearson") :
+'x' must be a numeric vector
+
+##How can I fix this? 
+
+##Multiple comparisons
+Mode and lyric count
+Test: Pearson test
+IV: Mode (Major = 1, Minor = 0)
+DV: lyric_count
+
+```{r}
+cor.test(
+  roty_data$mode,
+  roty_data$lyric_count,
+  method = "pearson"
+)
+
+```
+
+##I got the same error for this one:
+Error in cor.test.default(roty_data$mode, roty_data$lyric_count, method = "pearson") :
+'x' must be a numeric vector
+
+
+##Multiple comparisons
+Comparing the three variables against Grammy ROTY winning status
+Test: Multiple logistic regression (binomial)
+DV: is_winner (0 = non-winner, 1 = winner)
+IVs: bpm, mode, lyric_count
+
+##How should I go about doing this test? Is there a specific assignment/ hw/ explainer I can use as a reference? Is there a better test I can do to see how my three variables are associated with winning status.
+
+##I also had an idea to see if my data can predict the winner for the nominees that were announced recently for the 2027 Grammy's. Is that a good idea? Let me know!
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
 ##Tests to run for my final project:
 
 ***H1 (lyric count): Records with higher total lyric count are more likely to win the Grammy Award for Record of the Year. ***
